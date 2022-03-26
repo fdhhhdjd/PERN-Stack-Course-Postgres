@@ -1,15 +1,18 @@
+import axios from "axios";
 import React from "react";
 import ReactDOM from "react-dom";
-import axios from "axios";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import App from "./App";
 import { ContextProvider } from "./Context/UseContext";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 axios.defaults.baseURL = "http://localhost:5000";
 ReactDOM.render(
   <ContextProvider>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </ContextProvider>,
   document.getElementById("root")
 );

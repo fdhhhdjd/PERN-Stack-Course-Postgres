@@ -1,15 +1,16 @@
 import { Fragment } from "react";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { ListTodo, InputTodo } from "./Import/Index";
+import "./App.css";
+import { HomeMain, EditTodo, DetailTodo } from "./Import/Index";
 function App() {
   return (
     <Fragment>
       <ToastContainer position="top-center" />
-      <div className="container">
-        <InputTodo />
-        <ListTodo />
-      </div>
+      <Routes>
+        <Route path="/" element={<HomeMain />} />
+        <Route path="/todo/:id" element={<DetailTodo />} />
+      </Routes>
     </Fragment>
   );
 }

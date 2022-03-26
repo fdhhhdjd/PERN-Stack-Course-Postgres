@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { useQuery, EditTodo, useMyContext, useMutation } from "../Import/Index";
 import { getAllTodo, DeleteTodo } from "../Import/Import";
+import { Link } from "react-router-dom";
 const ListTodo = () => {
   const { refetching } = useMyContext();
   const { mutate } = useMutation();
@@ -30,7 +31,13 @@ const ListTodo = () => {
           <tbody>
             {todo.map((todo) => (
               <tr key={todo.todo_id}>
-                <td>{todo.description}</td>
+                <Link
+                  to={`/todo/${todo.todo_id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <td>{todo.description}</td>
+                </Link>
+
                 <td>
                   <EditTodo todo={todo} />
                 </td>
